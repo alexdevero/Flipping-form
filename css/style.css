@@ -19,7 +19,7 @@ input[type="submit"],
           transition: all .25s ease;
 }
 
-/* Fallback for hidden attribute for older browsers – IE9 and lower */
+/* Fallback for hidden attribute for older browsers - IE9 and lower */
 hidden {
   display: none;
 }
