@@ -171,7 +171,8 @@ label[for="checkbox"] {
   transform: scale(0);
 }
 .form__link {
-  font-size: .85rem;
+  font-size: .8rem;
+  font-weight: bold;
   text-decoration: underline;
   color: rgba($color--text,.75);
   cursor: pointer;
