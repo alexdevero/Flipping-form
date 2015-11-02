@@ -219,7 +219,8 @@ label[for="checkbox"] {
 }
 
 .form__link {
-  font-size: .85rem;
+  font-size: .8rem;
+  font-weight: bold;
   text-decoration: underline;
   color: rgba(107, 141, 159, 0.75);
   cursor: pointer;
@@ -248,4 +249,4 @@ label[for="checkbox"] {
 }
 .form__button:focus, .form__button:hover {
   background-color: #0b74c7;
-} 
+}
