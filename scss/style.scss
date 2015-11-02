@@ -1,0 +1,197 @@
+// Remy
+@function remy($value) {
+  @return ($value / 16px) * 1rem;
+}
+// Variables:
+$color--text: #6b8d9f;
+$color--border: #e1e1e1;
+$radius: 2px;
+
+/**
+ * Base
+ */
+html,
+body {min-height: 100%;}
+body {
+  font: 100% / 1.414 "Open sans", "Trebuchet MS", arial, sans-serif;
+  color: $color--text;
+  background: #f1f1f1;
+}
+a,
+input[type="submit"],
+.form__link {transition: all .25s ease;}
+hidden {display: none;}
+small {
+  display: block;
+  margin-top: 1rem;
+  font-size: remy(13px);
+  text-align: center;
+}
+/**
+ * Animation keyframes
+ */
+@-webkit-keyframes gradient {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes gradient {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes gradient { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+/**
+ * Layout
+ */
+.wrapper {
+  position: relative;
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: remy(320px);
+  background: #fff;
+  box-shadow: 3px 3px 32px rgba(0,0,0,.25);
+  perspective: 1000;
+}
+.flipper__checkbox:checked + .form__container {transform: rotateY(180deg);}
+.form__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .25s ease;
+}
+.form__container--inner {padding: 2rem;}
+.form__login,
+.form__signup {
+	position: absolute;
+	top: 0;
+	left: 0;
+  margin: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  background: #fff;
+  box-shadow: 3px 3px 32px rgba(0,0,0,.25);
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(270deg, #2196f3, lighten(#2196f3, 25%));
+    background-size: 400% 400%;
+    animation: gradient 2s ease infinite;
+  }
+}
+.form__login {
+  z-index: 2;
+  padding: 2rem;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+.form__signup {
+  padding: 2rem;
+  margin-left: -3.95rem;
+  transform: rotateY(180deg);
+}
+/**
+ * Form default styling
+ */
+.form__header {
+  margin-bottom: 2rem;
+  font-size: 1.618rem;
+  font-weight: 700;
+  text-align: center;
+}
+.form__group:nth-of-type(n+2) {margin-top: 1.5rem;}
+.label__icon {
+  padding: .97rem 0;
+  float: left;
+  width: 3rem;
+  font-size: 1.25rem;
+  text-align: center;
+  color: rgba(107,141,159,.25);
+  border-top: 1px solid $color--border;
+  border-bottom: 1px solid $color--border;
+  border-left: 1px solid $color--border;
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+.form__element {
+  padding-top: 1.11rem;
+  padding-right: 1rem;
+  padding-bottom: 1.11rem;
+  width: remy(254px);
+  border-top: 1px solid $color--border;
+  border-right: 1px solid $color--border;
+  border-bottom: 1px solid $color--border;
+  border-left: 0;
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  &:focus {outline: 0;}
+}
+[type="checkbox"] {
+  position: relative;
+  margin-right: .5rem;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid $color--border;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: $radius;
+    cursor: pointer;
+  }
+}
+label[for="checkbox"] {
+  position: relative;
+  font-size: .9rem;
+  font-weight: 700;
+}
+.checkbox--forget:checked + .icon--checkbox {
+  opacity: 1;
+  transform: scale(1);
+}
+.icon--checkbox {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  opacity: 0;
+  cursor: pointer;
+  transition: all .35s cubic-bezier(.91,.8,.84,2.81);
+  transform: scale(0);
+}
+.form__link {
+  font-size: .85rem;
+  text-decoration: underline;
+  color: rgba($color--text,.75);
+  cursor: pointer;
+  &:focus,
+  &:hover {color: rgba($color--text,.95);}
+}
+.link--right {float: right;}
+.form__button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: inline-block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  background-color: #2196f3;
+  border: 0;
+  border-radius: $radius;
+  cursor: pointer;
+  &:focus,
+  &:hover {background-color: darken(#2196f3, 13%);}
+}
