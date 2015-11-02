@@ -20,6 +20,7 @@ body {
 a,
 input[type="submit"],
 .form__link {transition: all .25s ease;}
+/* Fallback for hidden attribute for older browsers – IE9 and lower */
 hidden {display: none;}
 small {
   display: block;
